@@ -23,7 +23,7 @@ describe("Proof of ownership", function () {
     coldAddress = await cold.getAddress();
     hotAddress = await hot.getAddress();
     hot2Address = await hot2.getAddress();
-    const proof = await ethers.getContractFactory("Proof");
+    const proof = await ethers.getContractFactory("ProofERC721");
     proofContract = await proof
       .connect(owner)
       .deploy("Proof of ownership", "POO");

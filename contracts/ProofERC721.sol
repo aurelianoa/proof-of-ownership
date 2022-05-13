@@ -28,7 +28,7 @@ import "@openzeppelin/contracts/utils/Strings.sol";
 ///   For example RTFKT will use this contract to register the collections who wants to validate
 /// TODO: create a proxy system to create multiple contract for each validator.
 
-contract Proof is ERC721A, Ownable {
+contract ProofERC721 is ERC721A, Ownable {
     using Strings for uint256;
 
     bool public isActive = false;
@@ -62,7 +62,7 @@ contract Proof is ERC721A, Ownable {
         return isActive;
     }
     /// @param contractAddress address
-    /// @param isActive bool
+    /// @param active bool
     function setValidator(address contractAddress, bool active) external onlyOwner {
         require(isActive == true, "the contract is not active");
         IERC721 token = IERC721(contractAddress);
@@ -103,7 +103,7 @@ contract Proof is ERC721A, Ownable {
         address ownerAddress = token.ownerOf(tokenId);
 
         require(token.supportsInterface(type(IERC721).interfaceId), "no ERC721 support");
-        require(ownerAddress != address (0), "Token doesnt exist");
+        require(ownerAddress != address (0), "Owner doesnt exist");
 
         ERC721MetaData memory metaData = ERC721MetaData(
             contractAddress,
