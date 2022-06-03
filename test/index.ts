@@ -1,25 +1,23 @@
 import { expect } from "chai";
 import { ethers } from "hardhat";
 import { BigNumberish, Signer } from "ethers";
-import { ERC721MOCK, Proof } from "../typechain";
+import { ERC721MOCK, ProofERC721 } from "../typechain";
 
 describe("Proof of ownership", function () {
   let owner: Signer;
   let cold: Signer;
   let hot: Signer;
   let hot2: Signer;
-  let ownerAddress: string;
   let coldAddress: string;
   let hotAddress: string;
   let hot2Address: string;
-  let proofContract: Proof;
+  let proofContract: ProofERC721;
   let mockContract: ERC721MOCK;
   let tokenId: BigNumberish;
   let certTokenId: BigNumberish;
 
   beforeEach(async function () {
     [owner, cold, hot, hot2] = await ethers.getSigners();
-    ownerAddress = await owner.getAddress();
     coldAddress = await cold.getAddress();
     hotAddress = await hot.getAddress();
     hot2Address = await hot2.getAddress();

@@ -30,6 +30,11 @@ const config: HardhatUserConfig = {
       accounts:
         process.env.PRIVATE_KEY !== undefined ? [process.env.PRIVATE_KEY] : [],
     },
+    rinkeby: {
+      url: process.env.RINKEBY_URL || "", // Infura url with projectId
+      accounts:
+        process.env.PRIVATE_KEY !== undefined ? [process.env.PRIVATE_KEY] : [], // add the account that will deploy the contract (private key)
+    },
   },
   gasReporter: {
     enabled: process.env.REPORT_GAS !== undefined,

@@ -1,6 +1,6 @@
 // SPDX-License-Identifier: UNLICENSED
 
-/// Proof of ownership
+/// Proof of ownership ERC721
 /// @author dev.aurelianoa.eth
 pragma solidity ^0.8.9;
 
